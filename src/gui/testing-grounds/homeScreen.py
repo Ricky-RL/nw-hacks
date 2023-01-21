@@ -6,6 +6,12 @@ window = customtkinter.CTk()
 #window = Tk()
 window.geometry('1920x1080')
 
+# Set Background image
+bg = PhotoImage(file = "home Background.png")
+background = Label(window, image = bg)
+# background.place(x = 0, y = 0)
+# background.pack()
+
 def click(event):
     gameInput.config(state=NORMAL)
     gameInput.delete(0,END)

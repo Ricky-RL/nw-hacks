@@ -4,6 +4,7 @@ import customtkinter
 ws = customtkinter.CTk()
 width = 400 # Width 
 height = 250 # Height
+
  
 screen_width = ws.winfo_screenwidth()  # Width of the screen
 screen_height = ws.winfo_screenheight() # Height of the screen
