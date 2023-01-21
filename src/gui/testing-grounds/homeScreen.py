@@ -4,7 +4,7 @@ import customtkinter
 
 window = customtkinter.CTk()
 #window = Tk()
-window.geometry('600x400')
+window.geometry('1920x1080')
 
 def click(event):
     gameInput.config(state=NORMAL)
