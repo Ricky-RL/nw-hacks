@@ -1,0 +1,2 @@
+class GameParser:
+    a = "hi"
