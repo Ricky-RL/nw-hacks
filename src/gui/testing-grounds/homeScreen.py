@@ -1,10 +1,18 @@
 from tkinter import *
+import customtkinter
 
-window = Tk()
+
+window = customtkinter.CTk()
+#window = Tk()
+window.geometry('600x400')
 
 def click(event):
     gameInput.config(state=NORMAL)
     gameInput.delete(0,END)
+
+def press(event):
+    window.destroy()
+    import movieScreen
 
 
 # Search function
@@ -14,8 +22,10 @@ gameInput.insert(0,"name of game")
 gameInput.config(state=DISABLED)
 gameInput.bind("<Button-1>", click)
 
+gameInput.bind("<Return>", press)
+
 labelSearch.pack()
 gameInput.pack()
 
 
-mainloop()
+window.mainloop()
