@@ -1,8 +1,11 @@
+import tkinter
 from tkinter import *
 from PIL import *
 import customtkinter
 from core.parse.game_parser import *
-
+import tkinter.messagebox
+import os
+import time
 
 state = False
 def click(event):
@@ -10,26 +13,32 @@ def click(event):
     gameInput.delete(0,END)
 
 def press(event):
-    frame1.lower()
-    frame2.lift()
-    frame2.place(x=5, y=5)
-    frame3.lift()
-    global gameInput
-    g.add_game(gameInput.get())
+    try:
 
-    # a = g.get_movie_recommendations()[0]
-    #a.image.save(a.name+".jpg")
-    #img2 = ImageTk.PhotoImage(Image.open("WarHunt.jpg"))
-    g.get_movie_recommendations()[0].image.show()
-    for i in range(3):
-        g.get_movie_recommendations()[i].image.show()
+        global gameInput
 
-    #lb = Label(frame3,image=img2).pack()
+        g.add_game(gameInput.get())
 
+        # a = g.get_movie_recommendations()[0]
+        #a.image.save(a.name+".jpg")
+        #img2 = ImageTk.PhotoImage(Image.open("WarHunt.jpg"))
+        a = g.get_movie_recommendations()
 
-    frame3.place(x=50,y=50)
+        for i in range(5):
+            a[i].image.show()
+            print(a[i].name)
+            time.sleep(1)
 
-    print(g.get_movie_recommendations()[0].name)
+        # frame1.lower()
+        # frame2.lift()
+        # frame2.place(x=5, y=5)
+        # frame3.lift()
+        # #lb = Label(frame3,image=img2).pack()
+        # frame3.place(x=50,y=50)
+
+    except:
+        tkinter.messagebox.showinfo("Invalid Game:", "Please enter a new game")
+        pass
 
 
 def prev():
