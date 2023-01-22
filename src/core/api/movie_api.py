@@ -47,11 +47,10 @@ class MovieAPI:
                 movie_img_path = movie["poster_path"]
                 img_url = f"https://image.tmdb.org/t/p/w500/{movie_img_path}?api_key={self.api_key}"
                 img_response = requests.get(img_url, headers=self.headers)
-                movie_img = Image.open(BytesIO(img_response.content))
-                movies.append(Movie(movie_name, movie_img))
-                movie_img.show()
+                try:
+                    movie_img = Image.open(BytesIO(img_response.content))
+                    movies.append(Movie(movie_name, movie_img))
+                except:
+                    x = 1 # do nothing
 
         return movies
-
-m = MovieAPI()
-m.get_movie_recommendations(["War"])
