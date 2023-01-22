@@ -3,48 +3,58 @@ from PIL import *
 import customtkinter
 
 
-class GUI:
-    def __init__(self):
-        def click(event):
-            gameInput.config(state=NORMAL)
-            gameInput.delete(0,END)
+state = False
+def click(event):
+    gameInput.config(state=NORMAL)
+    gameInput.delete(0,END)
 
-        def press(event):
-            window.destroy()
-            import movieScreen
+def press(event):
+    frame1.lower()
+    frame2.lift()
+    state = True
+    frame2.lift()
+    frame2.place(x=5, y=5)
 
-        window = Tk()
-        window.title = "Video Game to Movie Recommender"
-        width = 923
-        height = 641
-        window.geometry("923x641")
+def prev():
+    frame2.lower()
+    frame1.lift()
+    state = False
 
-        # # Search function
+window = Tk()
+window.title = "Video Game to Movie Recommender"
+width = 923
+height = 641
+window.geometry("923x641")
 
-        frame1 = Frame(window, bg='#a2b0a5')
-        labelSearch = Label(frame1,text="I like playing...", bg='#a2b0a5')
-        gameInput = Entry(frame1)
-        gameInput.insert(0,"name of game")
-        gameInput.config(state=DISABLED)
-        gameInput.bind("<Button-1>", click)
-        gameInput.bind("<Return>", press)
-        frame1.place(x=width/2-40,y=height/2-80)
+# # Search function
 
+frame1 = Frame(window, bg='#a2b0a5')
+labelSearch = Label(frame1,text="I like playing...", bg='#a2b0a5',font=("Arial", 25))
+gameInput = Entry(frame1, font=("Arial", 25))
+gameInput.insert(0,"name of game")
+gameInput.config(state=DISABLED)
+gameInput.bind("<Button-1>", click)
+gameInput.bind("<Return>", press)
+frame1.place(x=width/2-40,y=height/2-80)
 
-        labelSearch.pack()
-        gameInput.pack()
+frame2 = Frame(window, bg='black', width=width, height=height)
+#back_btn = PhotoImage(file="back.png")
+b = Button(frame2, text="return", command=prev, bg='#d5f7e3',width=8, height=2, font=("Arial", 12))
+b.pack()
 
-        bg = PhotoImage(file = "home Background.png")
-        background = Label(window, image = bg)
-        background.lower()
-        background.place(x = 0, y = 0)
+labelSearch.pack()
+gameInput.pack()
 
-        background.pack()
+bg = PhotoImage(file = "home Background.png")
+background = Label(window, image = bg)
+background.lower()
+background.place(x = 0, y = 0)
 
+background.pack()
 
-        mainloop()
+mainloop()
 
-if __name__ == "__main__": GUI()
+# if __name__ == "__main__": GUI()
 #
 # #window = customtkinter.CTk()
 # window = Tk()
