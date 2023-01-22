@@ -2,6 +2,7 @@ import requests
 import configparser
 import os
 
+
 class Game:
     name = ""
     genres = []
@@ -38,15 +39,18 @@ class GameAPI:
             print(f"Error searching game: {response.status_code} - {response.reason}")
 
     def get_genres(self, game_id):
-        url = f'https://www.giantbomb.com/api/game/{game_id}/?api_key={self.api_key}&format=json&field_list=genres'
+        url = f'https://www.giantbomb.com/api/game/{game_id}/?api_key={self.api_key}&format=json&field_list=genres,themes'
         response = requests.get(url, headers=self.headers)
 
         if response.status_code == 200:
             json_response = response.json()
             genres_json = json_response['results']['genres']
+            themes_json = json_response['results']['themes']
             genres = []
             for genre_json in genres_json:
                 genres.append(genre_json['name'])
+            for theme_json in themes_json:
+                genres.append(theme_json['name'])  # treated same as genres
 
             return genres
         else:
