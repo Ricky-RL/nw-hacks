@@ -1,6 +1,7 @@
 from core.api.game_api import *
 from core.api.movie_api import *
 import random
+import requests
 
 
 class GameList:
@@ -136,6 +137,9 @@ movieAPI = MovieAPI()
 
 game = input("Find movies like this type of video game:")
 
+while not gameAPI.get_game_by_name(game):
+    game = input("Invalid game, try again:")
+
 # try:
 #     gameAPI.get_game_by_name(game).genres
 # except:
@@ -154,7 +158,6 @@ for sublist in movies:
 movies.clear()
 for i in range(3):
     movies.append(random.choice(flatmovies))
-
 
 print(flatmovies)
 print(movies)
