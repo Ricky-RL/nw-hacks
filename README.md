@@ -18,3 +18,7 @@ game_api = YOUR_GIANTBOMB_API_KEY
 movie_api = YOUR_TMDB_API_KEY
 ```
 
+## Other Project Files
+- [Figma](https://www.figma.com/file/aS69o9iXDYBHxCaC1ZTCjv/MOVIFY-GAMES?node-id=0%3A1&t=LsgUbJBGHcjrmwHp-1)
+- [Presentation](https://docs.google.com/presentation/d/1Lb4MJgD3KqpJhPrlINLA1TtTuALvWs6oSKYwi0LFMSs/edit?usp=sharing)
+
