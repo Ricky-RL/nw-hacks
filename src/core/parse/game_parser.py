@@ -15,19 +15,6 @@ class GameList:
     def get_games(self):
         return self.games
 
-    def get_game_by_name(self, name):
-        for game in self.games:
-            if game["name"] == name:
-                return game
-        return None
-
-    def get_games_by_genre(self, genre):
-        games_by_genre = []
-        for game in self.games:
-            if genre in game["genres"]:
-                games_by_genre.append(game)
-        return games_by_genre
-
     def remove_game(self, name):
         for i in range(len(self.games)):
             if self.games[i]["name"] == name:
@@ -108,7 +95,7 @@ movie_mapper = {
     "Comedy": ["Comedy"],
     "Comic Book": ["Action", "Adventure"],
     "Crime": ["Crime", "Thriller"],
-    "Cyberpunk": ["Science Fiction","Science Fiction","Science Fiction"],
+    "Cyberpunk": ["Science Fiction", "Science Fiction", "Science Fiction"],
     "Dating": ["Romance", "Comedy", "Family", "Romance", "Romance", "Romance"],
     "Egyptian": ["History", "Mystery", "Documentary"],
     "Espionage": ["Mystery", "Thriller"],
@@ -130,7 +117,6 @@ movie_mapper = {
     "Western": ["Western"],
     "World War II": ["War", "Action", "Thriller", "Horror"]
 }
-
 
 gameAPI = GameAPI()
 movieAPI = MovieAPI()
@@ -163,5 +149,3 @@ print(flatmovies)
 print(movies)
 
 print(movieAPI.get_movie_recommendations(movies))
-
-
