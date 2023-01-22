@@ -1,6 +1,7 @@
 from tkinter import *
 from PIL import *
 import customtkinter
+from core.parse.game_parser import *
 
 
 state = False
@@ -11,9 +12,12 @@ def click(event):
 def press(event):
     frame1.lower()
     frame2.lift()
-    state = True
-    frame2.lift()
     frame2.place(x=5, y=5)
+    global gameInput
+    g = GameParser()
+    g.add_game(gameInput.get())
+    print(g.get_movie_recommendations()[0].name)
+
 
 def prev():
     frame2.lower()
@@ -27,19 +31,21 @@ height = 641
 window.geometry("923x641")
 
 # # Search function
-
+gameInput = ""
 frame1 = Frame(window, bg='#a2b0a5')
-labelSearch = Label(frame1,text="I like playing...", bg='#a2b0a5',font=("Arial", 25))
-gameInput = Entry(frame1, font=("Arial", 25))
+labelSearch = Label(frame1,text="I like playing...", bg='#a2b0a5',font=("Helvetica", 25))
+
+gameInput = Entry(frame1, font=("Helvetica", 25))
 gameInput.insert(0,"name of game")
 gameInput.config(state=DISABLED)
 gameInput.bind("<Button-1>", click)
 gameInput.bind("<Return>", press)
-frame1.place(x=width/2-40,y=height/2-80)
+
+frame1.place(x=width/2-160,y=height/2-100)
 
 frame2 = Frame(window, bg='black', width=width, height=height)
 #back_btn = PhotoImage(file="back.png")
-b = Button(frame2, text="return", command=prev, bg='#d5f7e3',width=8, height=2, font=("Arial", 12))
+b = Button(frame2, text="return", command=prev, bg='#d5f7e3',width=8, height=2, font=("Helvetica", 12))
 b.pack()
 
 labelSearch.pack()
