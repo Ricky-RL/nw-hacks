@@ -137,9 +137,9 @@ class GameParser:
 
 
 g = GameParser()
-for i in range(1):
-    game = input("Find movies like this type of video game:")
-    g.add_game(game)
+# for i in range(1):
+#     game = input("Find movies like this type of video game:")
+#     g.add_game(game)
 
 try:
     x = g.get_movie_recommendations()
