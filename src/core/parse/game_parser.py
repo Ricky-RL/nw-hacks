@@ -46,3 +46,68 @@ movie_genres = ["Action", "Adventure", "Animation", "Comedy", "Crime", "Document
                 "Historical", "Horror", "Musical", "Mystery", "Romance", "Science Fiction", "Thriller", "War",
                 "Western"]
 
+# gameAPI = GameAPI()
+# print(gameAPI.get_game_by_name("The snowboard Game"))
+movie_mapper = {
+   "Action": ["Action"],
+   "Action-Adventure": ["Action", "Adventure"],
+   "Adventure": ["Adventure", "Action"],
+   "Baseball": ["Action", "Documentary"],
+   "Basketball": ["Action", "Documentary"],
+	"Billiards": ["Drama", "Sport"],
+	"Block-Breaking": ["Western"],
+	"Bowling":["Action", "Documentary"],
+	"Boxing": ["Action", "Drama", "Crime"],
+	"Brawler": ["Action", "Drama"],
+	"Card Game": ["Mystery", "Documentary"],
+	"Cricket": ["Documentary"],
+	"Driving/Racing": ["Action", "Thriller", "Romance"],
+	"Educational": ["Documentary", "History"],
+	"Fighting": ["Action", "Drama", "Thriller"],
+	"First-Person Shooter": ["Action", "War", "Western", "Thriller",  "History"],
+	"Fishing": ["Comedy"],
+	"Fitness": ["Romance", "Drama"],
+	"Flight Simulator": ["Romance", "Drama", "Documentary"],
+	"Football": ["Documentary"],
+	"Gambling": ["Crime", "Comedy", "Drama"],
+	"Golf": ["Family", "Drama"],
+	"Hockey": ["Family", "Action"],
+	"Light-Gun Shooter": ["Action", "Crime", "War", "Thriller", "Western"],
+	"MMORPG": ["Fantasy", "Romance", "Mystery", "Music"],
+	"MOBA": ["Family", "Action", "Adventure", "Fantasy", "War", "Thriller"],
+	"Music/Rhythm": ["Music", "Action"],
+	"Pinball": ["Documentary"],
+	"Platformer": ["Adventure", "Action"],
+	"Puzzle": ["Documentary", "Mystery"],
+	"Real-Time Strategy": ["Documentary", "Science Fiction", "War"],
+	"Role-Playing": ["Adventure", "Fantasy"],
+	"Shoot ‘Em Up": ["Action", "Crime", "War", "Thriller", "Western"],
+	"Shooter": ["Action", "Crime", "War", "Thriller", "Western"],
+	"Simulation": ["Romance", "Science Fiction"],
+	"Skateboarding": ["Documentary", "Western", "Action"],
+	"Snowboarding/Skiing": ["Adventure","Thriller"],
+	"Soccer": ["Drama", "Comedy"],
+	"Sports": ["Documentary", "Drama", "Family"],
+	"Strategy": ["Documentary", "Science Fiction", "War", "Family"],
+	"Tennis": ["Thriller", "Family", "Adventure"],
+	"Text Adventure": ["Horror", "Fantasy", "Family", "Science Fiction", "Thriller"],
+	"Track & Field": ["Action", "Family", "Drama"],
+	"Trivia/Board Game": ["Mystery", "Family"],
+	"Vehicular Combat": ["Action", "War", "Crime", "Drama"],
+	"Wrestling": ["Action", "War", "Drama"],
+	"Abstract": ["Fiction"],
+	"Adult": ["Romance", "Drama", "Family"],
+	"Alternative Historical": ["War", "Documentary"],
+	"Anime": ["Animation"],
+	"Aquatic": ["Music"],
+	"Civil War": ["War"],
+	"Comedy": ["Comedy"],
+	"Comic Book": ["Action", "Adventure"],
+
+
+}
+
+print(movie_mapper)
+print("")
+print(movie_mapper.get("Anime"))
+
