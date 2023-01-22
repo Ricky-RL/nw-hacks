@@ -128,6 +128,8 @@ class GameParser:
                     for g in g_list:
                         movie_genres.append(g)
         unique_genres = list(set(movie_genres))
+        if len(unique_genres) == 0:
+            raise Exception("No real games provided. Could not get recommendations")
         if len(unique_genres) < 4:
             return self.movieAPI.get_movie_recommendations(unique_genres)
         else:
@@ -139,6 +141,9 @@ for i in range(1):
     game = input("Find movies like this type of video game:")
     g.add_game(game)
 
-x = g.get_movie_recommendations()
-for a in x:
-    print(a.name)
+try:
+    x = g.get_movie_recommendations()
+    for a in x:
+        print(a.name)
+except:
+    print("No real games provided. Could not get recommendations")
