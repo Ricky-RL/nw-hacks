@@ -14,7 +14,6 @@ def press(event):
     frame2.lift()
     frame2.place(x=5, y=5)
     global gameInput
-    g = GameParser()
     g.add_game(gameInput.get())
     print(g.get_movie_recommendations()[0].name)
 
@@ -43,15 +42,18 @@ gameInput.bind("<Return>", press)
 
 frame1.place(x=width/2-160,y=height/2-100)
 
-frame2 = Frame(window, bg='black', width=width, height=height)
+frame2 = Frame(window, bg='black')
 #back_btn = PhotoImage(file="back.png")
 b = Button(frame2, text="return", command=prev, bg='#d5f7e3',width=8, height=2, font=("Helvetica", 12))
 b.pack()
 
+
+frame3 = Frame(window)
+
 labelSearch.pack()
 gameInput.pack()
 
-bg = PhotoImage(file = "home Background.png")
+bg = PhotoImage(file ="home Background.png")
 background = Label(window, image = bg)
 background.lower()
 background.place(x = 0, y = 0)

@@ -7,7 +7,7 @@ window.geometry("923x641")
 
 def prevPage():
     window.destroy()
-    import homeScreen
+
 
 frame1 = Frame(window)
 b = Button(
