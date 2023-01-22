@@ -1,10 +1,21 @@
 from tkinter import *
-import customtkinter
 
-window = customtkinter.CTk()
+window = Tk()
 width = 923
 height = 641
 window.geometry("923x641")
+
+def prevPage():
+    window.destroy()
+    import homeScreen
+
+frame1 = Frame(window)
+b = Button(
+    window,
+    text="Previous Page",
+    command=prevPage
+    )
+b.pack()
 
 # ws.geometry("{}x{}+{}+{}".format(width, height, int(x), int(y)))
 
@@ -34,4 +45,4 @@ window.geometry("923x641")
 
 
 
-window.mainloop()
+mainloop()
