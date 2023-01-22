@@ -17,18 +17,23 @@ def press(event):
 
         global gameInput
 
-        g.add_game(gameInput.get())
-
+        #g.add_game(gameInput.get())
+        gameInputs = gameInput.get().split(",")
+        for gameInput in gameInputs:
+            try:
+                g.add_game(gameInput)
+            except:
+                pass
         # a = g.get_movie_recommendations()[0]
         #a.image.save(a.name+".jpg")
         #img2 = ImageTk.PhotoImage(Image.open("WarHunt.jpg"))
         a = g.get_movie_recommendations()
 
-        for i in range(5):
+        a[0].image.show()
+        for i in range(1,5):
+            time.sleep(1)
             a[i].image.show()
             print(a[i].name)
-            time.sleep(1)
-
         # frame1.lower()
         # frame2.lift()
         # frame2.place(x=5, y=5)
