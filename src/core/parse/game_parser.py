@@ -117,19 +117,25 @@ class GameParser:
 
     def get_movie_recommendations(self):
         movie_genres = []
+        if len(self.games) == 0:
+            raise Exception("no games supplied")
         for game in self.games:
-            for genre in game.genres:
-                g_list = self.movie_mapper.get(genre)
-                for g in g_list:
-                    movie_genres.append(g)
+            if game:
+                if len(game.genres) == 0:
+                    raise Exception("no games supplied")
+                for genre in game.genres:
+                    g_list = self.movie_mapper.get(genre)
+                    for g in g_list:
+                        movie_genres.append(g)
         unique_genres = list(set(movie_genres))
         if len(unique_genres) < 4:
             return self.movieAPI.get_movie_recommendations(unique_genres)
         else:
             return self.movieAPI.get_movie_recommendations(random.sample(unique_genres, 3))
 
+
 g = GameParser()
-for i in range(3):
+for i in range(1):
     game = input("Find movies like this type of video game:")
     g.add_game(game)
 
