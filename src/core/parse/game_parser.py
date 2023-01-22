@@ -82,7 +82,7 @@ movie_mapper = {
     "Pinball": ["Documentary"],
     "Platformer": ["Adventure", "Action"],
     "Puzzle": ["Mystery", "Mystery", "Mystery"],
-    "Real-Time Strategy": ["Documentary", "Science Fiction", "War"],
+    "Real-Time Strategy": ["War"],
     "Role-Playing": ["Adventure", "Fantasy"],
     "Shoot ‘Em Up": ["Action", "Crime", "War", "Thriller", "Western"],
     "Shooter": ["Action", "Crime", "War", "Thriller", "Western"],
