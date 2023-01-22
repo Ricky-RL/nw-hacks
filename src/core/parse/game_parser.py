@@ -1,4 +1,7 @@
 from core.api.game_api import *
+from core.api.movie_api import *
+import random
+
 
 class GameList:
     def __init__(self):
@@ -49,65 +52,113 @@ movie_genres = ["Action", "Adventure", "Animation", "Comedy", "Crime", "Document
 # gameAPI = GameAPI()
 # print(gameAPI.get_game_by_name("The snowboard Game"))
 movie_mapper = {
-   "Action": ["Action"],
-   "Action-Adventure": ["Action", "Adventure"],
-   "Adventure": ["Adventure", "Action"],
-   "Baseball": ["Action", "Documentary"],
-   "Basketball": ["Action", "Documentary"],
-	"Billiards": ["Drama", "Sport"],
-	"Block-Breaking": ["Western"],
-	"Bowling":["Action", "Documentary"],
-	"Boxing": ["Action", "Drama", "Crime"],
-	"Brawler": ["Action", "Drama"],
-	"Card Game": ["Mystery", "Documentary"],
-	"Cricket": ["Documentary"],
-	"Driving/Racing": ["Action", "Thriller", "Romance"],
-	"Educational": ["Documentary", "History"],
-	"Fighting": ["Action", "Drama", "Thriller"],
-	"First-Person Shooter": ["Action", "War", "Western", "Thriller",  "History"],
-	"Fishing": ["Comedy"],
-	"Fitness": ["Romance", "Drama"],
-	"Flight Simulator": ["Romance", "Drama", "Documentary"],
-	"Football": ["Documentary"],
-	"Gambling": ["Crime", "Comedy", "Drama"],
-	"Golf": ["Family", "Drama"],
-	"Hockey": ["Family", "Action"],
-	"Light-Gun Shooter": ["Action", "Crime", "War", "Thriller", "Western"],
-	"MMORPG": ["Fantasy", "Romance", "Mystery", "Music"],
-	"MOBA": ["Family", "Action", "Adventure", "Fantasy", "War", "Thriller"],
-	"Music/Rhythm": ["Music", "Action"],
-	"Pinball": ["Documentary"],
-	"Platformer": ["Adventure", "Action"],
-	"Puzzle": ["Documentary", "Mystery"],
-	"Real-Time Strategy": ["Documentary", "Science Fiction", "War"],
-	"Role-Playing": ["Adventure", "Fantasy"],
-	"Shoot ‘Em Up": ["Action", "Crime", "War", "Thriller", "Western"],
-	"Shooter": ["Action", "Crime", "War", "Thriller", "Western"],
-	"Simulation": ["Romance", "Science Fiction"],
-	"Skateboarding": ["Documentary", "Western", "Action"],
-	"Snowboarding/Skiing": ["Adventure","Thriller"],
-	"Soccer": ["Drama", "Comedy"],
-	"Sports": ["Documentary", "Drama", "Family"],
-	"Strategy": ["Documentary", "Science Fiction", "War", "Family"],
-	"Tennis": ["Thriller", "Family", "Adventure"],
-	"Text Adventure": ["Horror", "Fantasy", "Family", "Science Fiction", "Thriller"],
-	"Track & Field": ["Action", "Family", "Drama"],
-	"Trivia/Board Game": ["Mystery", "Family"],
-	"Vehicular Combat": ["Action", "War", "Crime", "Drama"],
-	"Wrestling": ["Action", "War", "Drama"],
-	"Abstract": ["Fiction"],
-	"Adult": ["Romance", "Drama", "Family"],
-	"Alternative Historical": ["War", "Documentary"],
-	"Anime": ["Animation"],
-	"Aquatic": ["Music"],
-	"Civil War": ["War"],
-	"Comedy": ["Comedy"],
-	"Comic Book": ["Action", "Adventure"],
-
-
+    "Action": ["Action"],
+    "Action-Adventure": ["Action", "Adventure"],
+    "Adventure": ["Adventure", "Action"],
+    "Baseball": ["Action", "Documentary"],
+    "Basketball": ["Action", "Documentary"],
+    "Billiards": ["Drama", "Sport"],
+    "Block-Breaking": ["Western"],
+    "Bowling": ["Action", "Documentary"],
+    "Boxing": ["Action", "Drama", "Crime"],
+    "Brawler": ["Action", "Drama"],
+    "Card Game": ["Mystery", "Documentary"],
+    "Cricket": ["Documentary"],
+    "Driving/Racing": ["Action", "Thriller", "Romance"],
+    "Educational": ["Documentary", "History"],
+    "Fighting": ["Action", "Drama", "Thriller"],
+    "First-Person Shooter": ["Action", "War", "Western", "Thriller", "History"],
+    "Fishing": ["Comedy"],
+    "Fitness": ["Romance", "Drama"],
+    "Flight Simulator": ["Romance", "Drama", "Documentary"],
+    "Football": ["Documentary"],
+    "Gambling": ["Crime", "Comedy", "Drama"],
+    "Golf": ["Family", "Drama"],
+    "Hockey": ["Family", "Action"],
+    "Light-Gun Shooter": ["Action", "Crime", "War", "Thriller", "Western"],
+    "MMORPG": ["Fantasy", "Romance", "Mystery", "Music"],
+    "MOBA": ["Family", "Action", "Adventure", "Fantasy", "War", "Thriller"],
+    "Music/Rhythm": ["Music", "Action"],
+    "Pinball": ["Documentary"],
+    "Platformer": ["Adventure", "Action"],
+    "Puzzle": ["Documentary", "Mystery"],
+    "Real-Time Strategy": ["Documentary", "Science Fiction", "War"],
+    "Role-Playing": ["Adventure", "Fantasy"],
+    "Shoot ‘Em Up": ["Action", "Crime", "War", "Thriller", "Western"],
+    "Shooter": ["Action", "Crime", "War", "Thriller", "Western"],
+    "Simulation": ["Romance", "Science Fiction"],
+    "Skateboarding": ["Documentary", "Western", "Action"],
+    "Snowboarding/Skiing": ["Adventure", "Thriller"],
+    "Soccer": ["Drama", "Comedy"],
+    "Sports": ["Documentary", "Drama", "Family"],
+    "Strategy": ["Documentary", "Science Fiction", "War", "Family"],
+    "Tennis": ["Thriller", "Family", "Adventure"],
+    "Text Adventure": ["Horror", "Fantasy", "Family", "Science Fiction", "Thriller"],
+    "Track & Field": ["Action", "Family", "Drama"],
+    "Trivia/Board Game": ["Mystery", "Family"],
+    "Vehicular Combat": ["Action", "War", "Crime", "Drama"],
+    "Wrestling": ["Action", "War", "Drama"],
+    "Abstract": ["Fiction"],
+    "Adult": ["Romance", "Drama", "Family"],
+    "Alternative Historical": ["War", "Documentary"],
+    "Anime": ["Animation"],
+    "Aquatic": ["Music"],
+    "Civil War": ["War"],
+    "Comedy": ["Comedy"],
+    "Comic Book": ["Action", "Adventure"],
+    "Crime": ["Crime", "Thriller"],
+    "Cyberpunk": ["Science Fiction"],
+    "Dating": ["Romance", "Comedy", "Family"],
+    "Egyptian": ["History", "Mystery", "Documentary"],
+    "Espionage": ["Mystery", "Thriller"],
+    "Fantasy": ["Fantasy"],
+    "Game Show": ["Family", "Comedy"],
+    "Horror": ["Horror"],
+    "Management": ["Western"],
+    "Martial Arts": ["Action", "Thriller"],
+    "Mayan": ["History", "Mystery", "Documentary"],
+    "Medieval": ["War", "History", "Thriller", "Documentary"],
+    "Modern Military": ["War", "History", "Action", "Thriller"],
+    "Motorsports": ["Action", "Drama", "Action", "Western"],
+    "Post-Apocalyptic": ["Action", "Horror", "Thriller"],
+    "Prehistoric": ["History", "Documentary"],
+    "Sci-Fi": ["Science Fiction"],
+    "Steampunk": ["Science Fiction, Adventure"],
+    "Superhero": ["Action", "Mystery", "Drama"],
+    "Vietnam": ["History", "Documentary"],
+    "Western": ["Western"],
+    "World War II": ["War", "Action", "Thriller", "Horror"]
 }
 
-print(movie_mapper)
-print("")
-print(movie_mapper.get("Anime"))
+
+gameAPI = GameAPI()
+movieAPI = MovieAPI()
+
+game = input("Find movies like this type of video game:")
+
+# try:
+#     gameAPI.get_game_by_name(game).genres
+# except:
+#     quit()
+
+movies = []
+for genre in gameAPI.get_game_by_name(game).genres:
+    movies.append(movie_mapper.get(genre))
+
+flatmovies = []
+
+for sublist in movies:
+    for item in sublist:
+        flatmovies.append(item)
+
+movies.clear()
+for i in range(3):
+    movies.append(random.choice(flatmovies))
+
+
+print(flatmovies)
+print(movies)
+
+print(movieAPI.get_movie_recommendations(movies))
+
 
