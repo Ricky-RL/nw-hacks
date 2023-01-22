@@ -13,8 +13,22 @@ def press(event):
     frame1.lower()
     frame2.lift()
     frame2.place(x=5, y=5)
+    frame3.lift()
     global gameInput
     g.add_game(gameInput.get())
+
+    # a = g.get_movie_recommendations()[0]
+    #a.image.save(a.name+".jpg")
+    #img2 = ImageTk.PhotoImage(Image.open("WarHunt.jpg"))
+    g.get_movie_recommendations()[0].image.show()
+    for i in range(3):
+        g.get_movie_recommendations()[i].image.show()
+
+    #lb = Label(frame3,image=img2).pack()
+
+
+    frame3.place(x=50,y=50)
+
     print(g.get_movie_recommendations()[0].name)
 
 
@@ -22,6 +36,7 @@ def prev():
     frame2.lower()
     frame1.lift()
     state = False
+    frame3.lower()
 
 window = Tk()
 window.title = "Video Game to Movie Recommender"
@@ -49,6 +64,7 @@ b.pack()
 
 
 frame3 = Frame(window)
+
 
 labelSearch.pack()
 gameInput.pack()
