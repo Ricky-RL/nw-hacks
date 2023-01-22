@@ -10,7 +10,6 @@ class Game:
         self.name = name
         self.genres = genres
 
-
 class GameAPI:
     def __init__(self):
         config = configparser.ConfigParser()
