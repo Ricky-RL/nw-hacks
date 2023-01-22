@@ -1,6 +1,6 @@
 import requests
 import configparser
-
+import os
 
 class Game:
     name = ""
@@ -10,11 +10,11 @@ class Game:
         self.name = name
         self.genres = genres
 
-class GameAPI:
 
+class GameAPI:
     def __init__(self):
         config = configparser.ConfigParser()
-        config.read("secrets.ini")
+        config.read(os.path.abspath("../parse/secrets.ini"))
         self.api_key = config["secrets"]["game_api"]
         self.headers = {
             'User-Agent': 'movie recommender for games'

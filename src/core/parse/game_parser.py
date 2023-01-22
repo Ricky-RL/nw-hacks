@@ -1,13 +1,12 @@
-#from core.api.game_api import *
-
+from core.api.game_api import *
 
 class GameList:
     def __init__(self):
+        self.gameAPI = GameAPI()
         self.games = []
 
-    def add_game(self, name, genres):
-        game = {"name": name, "genres": genres}
-        self.games.append(game)
+    def add_game(self, name):
+        self.games.append(self.gameAPI.get_game_by_name(name))
 
     def get_games(self):
         return self.games
@@ -42,12 +41,8 @@ class GameList:
                 return
         print("Game not found.")
 
-    
-
 
 movie_genres = ["Action", "Adventure", "Animation", "Comedy", "Crime", "Documentary", "Drama", "Family", "Fantasy",
                 "Historical", "Horror", "Musical", "Mystery", "Romance", "Science Fiction", "Thriller", "War",
                 "Western"]
-
-
 
